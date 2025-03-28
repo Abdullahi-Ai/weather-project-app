@@ -54,23 +54,18 @@ document.addEventListener('DOMContentLoaded', () => {
             advice = "It's sunny! Don't forget your sunglasses.";
         } else if (data.weather[0].main === "Snow") {
             advice = "It's snowing! Stay warm and drive safely.";
+        } else if (data.weather[0].main === "Mist" || data.weather[0].main === "Fog") {
+            advice = "Low visibility due to mist and fog. Drive carefully.";
         }
-
+        
         if (advice) {
             alert(advice);
         }
-
-        document.querySelector(".weather").style.display = "block";
-        document.querySelector(".error").style.display = "none";
-    }
-
-    searchBtn.addEventListener("click", () => {
-        checkWeather(searchbox.value);
-    });
-
-    searchbox.addEventListener("keydown", (event) => {
-        if (event.key === "Enter") {
-            checkWeather(searchbox.value);
+        
+        // Alert message conditions 
+        if (data.weather[0].main === "Rain" && data.main.humidity > 90) {
+            alert("Flood Alert! Heavy rain detected. Stay in safe areas.");
         }
-    });
-});
+        
+        
+
