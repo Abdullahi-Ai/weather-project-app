@@ -69,3 +69,18 @@ document.addEventListener('DOMContentLoaded', () => {
         
         
 
+
+        document.querySelector(".weather").style.display = "block";
+        document.querySelector(".error").style.display = "none";
+    }
+
+    searchBtn.addEventListener("click", () => {
+        checkWeather(searchbox.value);
+    });
+
+    searchbox.addEventListener("keydown", (event) => {
+        if (event.key === "Enter") {
+            checkWeather(searchbox.value);
+        }
+    });
+});
